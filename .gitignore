@@ -71,3 +71,11 @@ windows/sign.cer
 .aider.input.history
 .aider.chat.history.md
 .aider.tags.cache.v4
+
+# Node.js (temporary tooling artifacts)
+node_modules/
+package-lock.json
+package.json
+
+# Downloaded library archives
+*.tar.gz
