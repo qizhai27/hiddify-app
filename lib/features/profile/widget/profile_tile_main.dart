@@ -167,7 +167,7 @@ class ProfileTileMain extends HookConsumerWidget {
     );
   }
 
-  IconData _getLinkIcon(String url, [IconData? icon]) {
+  Object _getLinkIcon(String url, [IconData? icon]) {
     final uri = Uri.parse(url);
     final host = uri.host.toLowerCase();
 
@@ -273,7 +273,7 @@ class _UsageRow extends StatelessWidget {
 class _InfoItem extends StatelessWidget {
   const _InfoItem({required this.icon, required this.label, required this.value});
 
-  final IconData icon;
+  final Object icon;
   final String label;
   final String value;
 
@@ -289,7 +289,10 @@ class _InfoItem extends StatelessWidget {
       // ),
       child: Row(
         children: [
-          Icon(icon, size: 20, color: theme.colorScheme.onSurfaceVariant),
+          if (icon is FaIconData)
+            FaIcon(icon as FaIconData, size: 20, color: theme.colorScheme.onSurfaceVariant)
+          else
+            Icon(icon as IconData, size: 20, color: theme.colorScheme.onSurfaceVariant),
           const Gap(12),
           Expanded(
             child: Column(

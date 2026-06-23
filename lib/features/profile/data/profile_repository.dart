@@ -192,9 +192,10 @@ class ProfileRepositoryImpl with ExceptionHandler, InfraLogger implements Profil
         final file = _profilePathResolver.file(id);
         final tempFile = _profilePathResolver.tempFile(id);
         try {
-          await tempFile.writeAsString(content);
+          final fixedContent = ProfileParser.fixTrojanTlsEnabled(content);
+          await tempFile.writeAsString(fixedContent);
           final task = _profileParser
-              .addLocal(id: id, content: content, tempFilePath: tempFile.path, userOverride: userOverride)
+              .addLocal(id: id, content: fixedContent, tempFilePath: tempFile.path, userOverride: userOverride)
               .flatMap(
                 (profEntity) =>
                     validateConfig(
@@ -227,8 +228,9 @@ class ProfileRepositoryImpl with ExceptionHandler, InfraLogger implements Profil
         final file = _profilePathResolver.file(id);
         final tempFile = _profilePathResolver.tempFile(id);
         try {
+          final fixedNContent = ProfileParser.fixTrojanTlsEnabled(nContent);
           return TaskEither.tryCatch(
-            () async => await tempFile.writeAsString(nContent),
+            () async => await tempFile.writeAsString(fixedNContent),
             ProfileFailure.unexpected,
           ).flatMap(
             (_) =>

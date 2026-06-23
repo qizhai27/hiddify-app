@@ -474,4 +474,29 @@ class ProfileParser {
     });
     return main;
   }
+
+  // Trojan protocol always requires TLS. Some subscriptions omit "enabled: true"
+  // in the tls block, causing sing-box to skip TLS initialization and crash.
+  static String fixTrojanTlsEnabled(String content) {
+    try {
+      final dynamic decoded = jsonDecode(content);
+      if (decoded is! Map<String, dynamic>) return content;
+      final outbounds = decoded['outbounds'];
+      if (outbounds is! List) return content;
+      var changed = false;
+      for (final ob in outbounds) {
+        if (ob is Map<String, dynamic> && ob['type'] == 'trojan') {
+          final tls = ob['tls'];
+          if (tls is Map<String, dynamic> && tls['enabled'] != true) {
+            tls['enabled'] = true;
+            changed = true;
+          }
+        }
+      }
+      if (!changed) return content;
+      return jsonEncode(decoded);
+    } catch (_) {
+      return content;
+    }
+  }
 }
