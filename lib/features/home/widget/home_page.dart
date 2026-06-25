@@ -6,6 +6,7 @@ import 'package:hiddify/core/localization/translations.dart';
 import 'package:hiddify/core/router/bottom_sheets/bottom_sheets_notifier.dart';
 import 'package:hiddify/features/home/widget/connection_button.dart';
 import 'package:hiddify/features/profile/notifier/active_profile_notifier.dart';
+import 'package:hiddify/features/profile/notifier/daily_subscription_notifier.dart';
 import 'package:hiddify/features/profile/widget/profile_tile.dart';
 import 'package:hiddify/features/proxy/active/active_proxy_card.dart';
 import 'package:hiddify/features/proxy/active/active_proxy_delay_indicator.dart';
@@ -60,6 +61,7 @@ class HomePage extends HookConsumerWidget {
           //     material: (context, platform) => MaterialIconButtonData(
           //           tooltip: t.profile.add.buttonText,
           //         )),
+          _DailySubButton(),
           Semantics(
             key: const ValueKey("profile_add_button"),
             label: t.pages.profiles.add,
@@ -179,6 +181,48 @@ class HomePage extends HookConsumerWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _DailySubButton extends HookConsumerWidget {
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final theme = Theme.of(context);
+    final state = ref.watch(dailySubscriptionNotifierProvider);
+    final isLoading = state is DailySubLoading;
+
+    ref.listen(dailySubscriptionNotifierProvider, (_, next) {
+      if (next is DailySubDone) {
+        final messenger = ScaffoldMessenger.of(context);
+        if (next.added == 0 && next.skipped > 0 && next.failed == 0) {
+          messenger.showSnackBar(
+            const SnackBar(content: Text('今日订阅已是最新'), duration: Duration(seconds: 2)),
+          );
+        } else {
+          final msg = StringBuffer();
+          if (next.added > 0) msg.write('已添加 ${next.added} 个');
+          if (next.skipped > 0) msg.write('  跳过 ${next.skipped} 个');
+          if (next.failed > 0) msg.write('  失败 ${next.failed} 个');
+          messenger.showSnackBar(
+            SnackBar(content: Text(msg.toString()), duration: const Duration(seconds: 3)),
+          );
+        }
+      }
+    });
+
+    return IconButton(
+      tooltip: '添加今日订阅',
+      icon: isLoading
+          ? SizedBox(
+              width: 20,
+              height: 20,
+              child: CircularProgressIndicator(strokeWidth: 2, color: theme.colorScheme.primary),
+            )
+          : Icon(Icons.cloud_download_rounded, color: theme.colorScheme.primary),
+      onPressed: isLoading
+          ? null
+          : () => ref.read(dailySubscriptionNotifierProvider.notifier).addTodaySubscriptions(),
     );
   }
 }
