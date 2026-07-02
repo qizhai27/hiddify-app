@@ -22,6 +22,7 @@ class PacStatus extends _$PacStatus with AppLogger {
     final pacEnabled = ref.watch(Preferences.pacEnabled);
     final connectionStatus = ref.watch(connectionNotifierProvider);
     final mixedPort = ref.watch(ConfigOptions.mixedPort);
+    final customRules = ref.watch(Preferences.pacCustomRules);
 
     final isConnected = connectionStatus.valueOrNull?.isConnected ?? false;
 
@@ -68,7 +69,11 @@ class PacService with AppLogger {
       final decoded = utf8.decode(base64.decode(body.trim()));
       final rules = _parseGfwlist(decoded);
 
-      _cachedPacContent = _generatePacContent(rules, mixedPort);
+      final customRules = ref.read(Preferences.pacCustomRules);
+      final customParsedRules = _parseCustomRules(customRules);
+      final allRules = [...customParsedRules, ...rules];
+
+      _cachedPacContent = _generatePacContent(allRules, mixedPort);
       _lastMixedPort = mixedPort;
 
       _server = await HttpServer.bind(InternetAddress.loopbackIPv4, 0);
@@ -104,6 +109,23 @@ class PacService with AppLogger {
       loggy.info("PAC server stopped");
     }
     await _clearSystemAutoProxy();
+  }
+
+  List<_GfwRule> _parseCustomRules(List<String> rules) {
+    final parsed = <_GfwRule>[];
+    for (final line in rules) {
+      final trimmed = line.trim();
+      if (trimmed.isEmpty || trimmed.startsWith('!') || trimmed.startsWith('#')) continue;
+
+      if (trimmed.startsWith('@@')) {
+        final rule = _parseRule(trimmed.substring(2));
+        if (rule != null) parsed.add(rule.copyWith(isWhitelist: true));
+      } else {
+        final rule = _parseRule(trimmed);
+        if (rule != null) parsed.add(rule);
+      }
+    }
+    return parsed;
   }
 
   List<_GfwRule> _parseGfwlist(String content) {

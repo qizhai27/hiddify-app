@@ -123,6 +123,11 @@ abstract class Preferences {
     "pac_url",
     "https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt",
   );
+
+  static final pacCustomRules = PreferencesNotifier.create<List<String>, List<String>>(
+    "pac_custom_rules",
+    <String>[],
+  );
 }
 
 @Riverpod(keepAlive: true)

@@ -245,7 +245,21 @@
         "started": "PAC service started",
         "stopping": "Stopping PAC service",
         "stopped": "PAC service stopped",
-        "downloadFailed": "Failed to download PAC rules"
+        "downloadFailed": "Failed to download PAC rules",
+        "customRules": "Custom Rules",
+        "customRulesHint": "Enter one rule per line, e.g.:\n||google.com\n@@||baidu.com\n.example.com",
+        "invalidRules": "Invalid rules:",
+        "line": "Line",
+        "rulesHelp": "PAC Rules Help",
+        "rulesHelpDesc": "Each line is one rule. Matching domains will be routed through the proxy.",
+        "rulesHelpRules": {
+          "domainMatch": "||domain.com — Match domain and all subdomains",
+          "exactMatch": "domain.com — Exact domain match only",
+          "subdomainMatch": ".domain.com — Match domain and subdomains",
+          "whitelist": "@@||domain.com — Whitelist (always direct, no proxy)",
+          "comment": "! or # — Comment line (ignored)"
+        },
+        "rulesHelpExamples": "Examples"
       },
       "routing": {
         "title": "Routing",
