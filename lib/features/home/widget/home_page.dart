@@ -195,7 +195,7 @@ class _DailySubButton extends HookConsumerWidget {
     ref.listen(dailySubscriptionNotifierProvider, (_, next) {
       if (next is DailySubDone) {
         final messenger = ScaffoldMessenger.of(context);
-        if (next.added == 0 && next.skipped > 0 && next.failed == 0) {
+        if (next.added == 0 && next.skipped > 0 && next.failed == 0 && next.deleted == 0) {
           messenger.showSnackBar(
             const SnackBar(content: Text('今日订阅已是最新'), duration: Duration(seconds: 2)),
           );
@@ -203,9 +203,10 @@ class _DailySubButton extends HookConsumerWidget {
           final msg = StringBuffer();
           if (next.added > 0) msg.write('已添加 ${next.added} 个');
           if (next.skipped > 0) msg.write('  跳过 ${next.skipped} 个');
+          if (next.deleted > 0) msg.write('  清理旧订阅 ${next.deleted} 个');
           if (next.failed > 0) msg.write('  失败 ${next.failed} 个');
           messenger.showSnackBar(
-            SnackBar(content: Text(msg.toString()), duration: const Duration(seconds: 3)),
+            SnackBar(content: Text(msg.toString().trim()), duration: const Duration(seconds: 3)),
           );
         }
       }
@@ -220,9 +221,51 @@ class _DailySubButton extends HookConsumerWidget {
               child: CircularProgressIndicator(strokeWidth: 2, color: theme.colorScheme.primary),
             )
           : Icon(Icons.cloud_download_rounded, color: theme.colorScheme.primary),
-      onPressed: isLoading
-          ? null
-          : () => ref.read(dailySubscriptionNotifierProvider.notifier).addTodaySubscriptions(),
+      onPressed: isLoading ? null : () => _showModeDialog(context, ref),
+    );
+  }
+
+  void _showModeDialog(BuildContext context, WidgetRef ref) {
+    showDialog<void>(
+      context: context,
+      builder: (ctx) {
+        return AlertDialog(
+          title: const Text('更新当日订阅'),
+          content: const Text('请选择订阅类型：'),
+          actionsAlignment: MainAxisAlignment.start,
+          actions: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                TextButton.icon(
+                  icon: const Icon(Icons.description_outlined),
+                  label: const Text('v2ray 订阅'),
+                  onPressed: () {
+                    Navigator.of(ctx).pop();
+                    ref.read(dailySubscriptionNotifierProvider.notifier).addTodaySubscriptions(DailySubMode.txt);
+                  },
+                ),
+                TextButton.icon(
+                  icon: const Icon(Icons.code_rounded),
+                  label: const Text('sing-box 订阅'),
+                  onPressed: () {
+                    Navigator.of(ctx).pop();
+                    ref.read(dailySubscriptionNotifierProvider.notifier).addTodaySubscriptions(DailySubMode.json);
+                  },
+                ),
+              ],
+            ),
+            const SizedBox(height: 4),
+            SizedBox(
+              width: double.infinity,
+              child: TextButton(
+                onPressed: () => Navigator.of(ctx).pop(),
+                child: const Text('取消'),
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }
