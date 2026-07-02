@@ -236,6 +236,17 @@
         "useXrayCoreWhenPossible": "优先使用 xray-core",
         "useXrayCoreWhenPossibleMsg": "解析订阅链接时使用 xray-core。需重新导入订阅链接才能启用此选项。"
       },
+      "pac": {
+        "title": "PAC",
+        "pacUrl": "PAC 地址",
+        "save": "保存",
+        "saveSuccess": "PAC 地址保存成功",
+        "starting": "正在启动 PAC 服务",
+        "started": "PAC 服务已启动",
+        "stopping": "正在停止 PAC 服务",
+        "stopped": "PAC 服务已停止",
+        "downloadFailed": "下载 PAC 规则失败"
+      },
       "routing": {
         "title": "路由",
         "routeRule": {

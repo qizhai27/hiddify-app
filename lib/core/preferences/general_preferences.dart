@@ -116,6 +116,13 @@ abstract class Preferences {
   static final psiphonConsentGiven = PreferencesNotifier.create<bool, bool>("psiphon-consent-given", false);
 
   static final showRouteGeneralOptions = PreferencesNotifier.create<bool, bool>("show-route-general-options", true);
+
+  static final pacEnabled = PreferencesNotifier.create<bool, bool>("pac_enabled", false);
+
+  static final pacUrl = PreferencesNotifier.create<String, String>(
+    "pac_url",
+    "https://raw.githubusercontent.com/gfwlist/gfwlist/master/gfwlist.txt",
+  );
 }
 
 @Riverpod(keepAlive: true)

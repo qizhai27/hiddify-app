@@ -10,6 +10,7 @@ import 'package:hiddify/features/log/model/log_level.dart';
 import 'package:hiddify/features/settings/data/config_option_repository.dart';
 import 'package:hiddify/features/settings/widget/preference_tile.dart';
 import 'package:hiddify/utils/utils.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:humanizer/humanizer.dart';
 
@@ -64,6 +65,23 @@ class GeneralPage extends HookConsumerWidget {
             ),
           ],
           if (PlatformUtils.isAndroid) const BatteryOptimizationWidget(),
+          ListTile(
+            title: Text(t.pages.settings.pac.title),
+            leading: const Icon(Icons.policy_rounded),
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Switch.adaptive(
+                  value: ref.watch(Preferences.pacEnabled),
+                  onChanged: (value) async {
+                    await ref.read(Preferences.pacEnabled.notifier).update(value);
+                  },
+                ),
+                const Icon(Icons.chevron_right_rounded),
+              ],
+            ),
+            onTap: () => context.go(context.namedLocation('pacOptions')),
+          ),
           SwitchListTile.adaptive(
             title: Text(t.pages.settings.general.memoryLimit),
             subtitle: Text(t.pages.settings.general.memoryLimitMsg),

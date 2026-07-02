@@ -236,6 +236,17 @@
         "useXrayCoreWhenPossible": "Use xray-core when possible",
         "useXrayCoreWhenPossibleMsg": "Use xray-core during parsing sub links. You need to reimport the sub link to enable this option."
       },
+      "pac": {
+        "title": "PAC",
+        "pacUrl": "PAC URL",
+        "save": "Save",
+        "saveSuccess": "PAC URL saved successfully",
+        "starting": "Starting PAC service",
+        "started": "PAC service started",
+        "stopping": "Stopping PAC service",
+        "stopped": "PAC service stopped",
+        "downloadFailed": "Failed to download PAC rules"
+      },
       "routing": {
         "title": "Routing",
         "routeRule": {
