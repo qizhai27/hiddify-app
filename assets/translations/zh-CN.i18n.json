@@ -6,13 +6,13 @@
     "ok": "确定",
     "cancel": "取消",
     "kContinue": "继续",
-    "showMore": "显示更多",
-    "showLess": "显示更少",
+    "showMore": "展开",
+    "showLess": "收起",
     "filter": "筛选",
     "all": "全部",
     "pause": "暂停",
     "resume": "恢复",
-    "clear": "清除",
+    "clear": "清空",
     "close": "关闭",
     "auto": "自动",
     "manually": "手动",
@@ -20,11 +20,11 @@
     "url": "URL",
     "add": "添加",
     "clipboard": "剪贴板",
-    "addToClipboard": "添加到剪贴板",
+    "addToClipboard": "复制到剪贴板",
     "scanQr": "扫描二维码",
     "free": "免费",
     "warp": "WARP",
-    "fragment": "Fragment",
+    "fragment": "分片",
     "help": "帮助",
     "save": "保存",
     "update": "更新",
@@ -73,7 +73,7 @@
       },
       "export": {
         "clipboard": {
-          "success": "已成功添加到剪贴板",
+          "success": "已复制到剪贴板",
           "failure": "复制到剪贴板失败",
           "contentTooLarge": "内容过大，请使用导出文件"
         },
@@ -93,20 +93,20 @@
     }
   },
   "intro": {
-    "banner": "畅享无限制网络的所需一切",
+    "banner": "畅享无限制网络所需的一切",
     "termsAndPolicyCaution(rich)": "继续即表示您同意 ${tap(@:pages.about.termsAndConditions)}",
     "info(rich)": "由 Hiddify 用 ❤️ 制作 - ${tap_source(开源)} (${tap_license(许可证)})"
   },
   "pages": {
     "home": {
       "title": "主页",
-      "quickSettings": "快速设置选项"
+      "quickSettings": "快速设置"
     },
     "proxies": {
       "title": "代理",
-      "sort": "排序代理",
+      "sort": "代理排序",
       "testDelay": "测试延迟",
-      "empty": "无可用代理",
+      "empty": "暂无可用代理",
       "activeProxy": "当前代理",
       "unknownIp": "未知 IP",
       "sortOptions": {
@@ -121,57 +121,57 @@
         "organization": "组织"
       },
       "delay": {
-        "result": "延迟：${delay}毫秒",
+        "result": "延迟：${delay}ms",
         "timeout": "延迟测试超时",
         "testing": "延迟：测试中..."
       }
     },
     "profiles": {
-      "title": "配置文件",
-      "add": "添加配置文件",
-      "update": "更新配置文件",
-      "viewAllProfiles": "查看所有配置文件",
-      "activeProfileName": "当前配置文件：\"${name}\"",
-      "nonActiveProfileName": "选择 \"${name}\" 作为当前配置文件",
+      "title": "配置",
+      "add": "添加配置",
+      "update": "更新配置",
+      "viewAllProfiles": "查看所有配置",
+      "activeProfileName": "当前配置：\"${name}\"",
+      "nonActiveProfileName": "将 \"${name}\" 设为当前配置",
       "freeSubNotFound": "未找到免费订阅",
       "freeSubNotFoundForRegion": "未找到 \"${region}\" 地区的免费订阅",
       "failedToLoad": "加载失败",
       "updateSubscriptions": "更新订阅",
       "share": {
-        "urlToClipboard": "URL 到剪贴板",
+        "urlToClipboard": "复制 URL 到剪贴板",
         "showUrlQr": "显示 URL 二维码",
-        "jsonToClipboard": "JSON 到剪贴板"
+        "jsonToClipboard": "复制 JSON 到剪贴板"
       },
       "msg": {
         "save": {
-          "success": "配置文件保存成功"
+          "success": "配置保存成功"
         },
-        "invalidUrl": "无效的 URL",
+        "invalidUrl": "URL 无效",
         "add": {
-          "failure": "添加配置文件失败"
+          "failure": "添加配置失败"
         },
         "update": {
-          "success": "配置文件更新成功",
+          "success": "配置更新成功",
           "successNamed": "\"${name}\" 更新成功",
-          "failure": "更新配置文件失败",
+          "failure": "更新配置失败",
           "failureNamed": "更新 \"${name}\" 失败"
         },
         "delete": {
-          "success": "配置文件删除成功"
+          "success": "配置已删除"
         }
       }
     },
     "profileDetails": {
-      "title": "配置文件",
+      "title": "配置",
       "lastUpdate": "最后更新",
       "form": {
-        "nameHint": "配置文件名称",
+        "nameHint": "配置名称",
         "emptyName": "名称为必填项",
-        "invalidUrl": "无效的 URL",
+        "invalidUrl": "URL 无效",
         "urlHint": "完整的配置 URL",
         "disableAutoUpdate": "禁用自动更新",
         "autoUpdateInterval": "自动更新间隔",
-        "loading": "正在添加配置文件..."
+        "loading": "正在添加配置..."
       }
     },
     "logs": {
@@ -191,7 +191,7 @@
     },
     "settings": {
       "title": "设置",
-      "resetTunnel": "重置 VPN 配置文件",
+      "resetTunnel": "重置 VPN 配置",
       "options": {
         "import": {
           "clipboard": "从剪贴板导入选项",
@@ -200,8 +200,8 @@
         "export": {
           "anonymousToClipboard": "复制匿名选项到剪贴板",
           "anonymousToFile": "导出匿名选项到文件",
-          "allToClipboard": "复制所有选项到剪贴板",
-          "allToFile": "导出所有选项到文件"
+          "allToClipboard": "复制全部选项到剪贴板",
+          "allToFile": "导出全部选项到文件"
         },
         "reset": "重置选项"
       },
@@ -215,33 +215,33 @@
           "light": "浅色模式",
           "black": "纯黑模式"
         },
-        "enableAnalytics": "启用分析",
-        "enableAnalyticsMsg": "允许收集分析数据和发送崩溃报告以改进应用",
-        "autoIpCheck": "自动检查连接 IP",
+        "enableAnalytics": "启用统计分析",
+        "enableAnalyticsMsg": "允许收集分析数据并发送崩溃报告以帮助改进应用",
+        "autoIpCheck": "自动检测连接 IP",
         "dynamicNotification": "在通知中显示速度",
-        "hapticFeedback": "触觉反馈",
-        "actionAtClosing": "关闭时操作",
+        "hapticFeedback": "触感反馈",
+        "actionAtClosing": "关闭窗口时",
         "autoStart": "开机自启",
         "silentStart": "静默启动",
         "ignoreBatteryOptimizations": "忽略电池优化",
         "ignoreBatteryOptimizationsMsg": "移除限制以获得最佳 VPN 性能",
         "memoryLimit": "内存限制",
-        "memoryLimitMsg": "如果您遇到内存不足错误或应用频繁崩溃，请启用此选项",
+        "memoryLimitMsg": "如遇内存不足或应用频繁崩溃，请启用此选项",
         "debugMode": "调试模式",
-        "debugModeMsg": "重启应用以应用此更改",
+        "debugModeMsg": "重启应用后生效",
         "logLevel": "日志级别",
         "connectionTestUrl": "连接测试 URL",
         "urlTestInterval": "URL 测试间隔",
         "clashApiPort": "Clash API 端口",
-        "useXrayCoreWhenPossible": "尽可能使用 xray-core",
-        "useXrayCoreWhenPossibleMsg": "解析订阅链接时使用 xray-core。您需要重新导入订阅链接才能启用此选项"
+        "useXrayCoreWhenPossible": "优先使用 xray-core",
+        "useXrayCoreWhenPossibleMsg": "解析订阅链接时使用 xray-core。需重新导入订阅链接才能启用此选项。"
       },
       "routing": {
         "title": "路由",
         "routeRule": {
-          "empty": "尚未添加规则\n\n点击 + 按钮创建新规则或从预设规则中选择",
+          "empty": "尚未添加规则\n\n点击 + 按钮创建新规则，或从预设规则中选择",
           "delete": "删除规则",
-          "create": "创建新规则",
+          "create": "新建规则",
           "options": {
             "import": {
               "clipboard": "从剪贴板导入规则",
@@ -264,7 +264,7 @@
             "validProcessName": "有效的 \"进程名\"，例如\n@:pages.settings.routing.routeRule.rule.validProcessNameEx",
             "validProcessPathEx": "C:\\Pro...\\chrome.exe\n/App.../Google Chrome\n/usr/lib.../chrome",
             "validProcessPath": "有效的 \"进程路径\"，例如\n@:pages.settings.routing.routeRule.rule.validProcessPathEx",
-            "validPortRangeEx": "80 或 1-65000",
+            "validPortRangeEx": "80 或 1:65000",
             "validPortRange": "有效的 \"端口\" 或 \"端口范围\"，例如\n@:pages.settings.routing.routeRule.rule.validPortRangeEx",
             "validIpCidrEx": "8.8.8.8 或 10.0.0.0/24",
             "validIpCidr": "有效的 IP CIDR，例如\n@:pages.settings.routing.routeRule.rule.validIpCidrEx",
@@ -288,7 +288,7 @@
               "domain": "域名",
               "domain_suffixe": "域名后缀",
               "domain_keyword": "域名关键词",
-              "domain_regex": "域名正则表达式"
+              "domain_regex": "域名正则"
             },
             "outbound(map)": {
               "proxy": "代理",
@@ -315,7 +315,7 @@
             "addNew": "添加新值",
             "update": "更新值",
             "clearList": "清空列表",
-            "clearListMsg": "所有项目已删除"
+            "clearListMsg": "将删除所有项目"
           }
         },
         "generalOptions": {
@@ -332,18 +332,18 @@
             "other": "其他"
           },
           "balancerStrategy": {
-            "title": "Balancer 策略",
-            "roundRobin": "Round robin",
-            "consistentHash": "Consistent hash",
-            "stickySession": "Sticky session"
+            "title": "负载均衡策略",
+            "roundRobin": "轮询",
+            "consistentHash": "一致性哈希",
+            "stickySession": "会话保持"
           },
-          "resolveDestination": "解析目的地",
+          "resolveDestination": "解析目标地址",
           "ipv6Route": "IPv6 路由",
           "ipv6Modes": {
             "disable": "禁用",
             "enable": "启用",
-            "prefer": "首选",
-            "only": "专享"
+            "prefer": "优先",
+            "only": "仅"
           },
           "perAppProxy": {
             "title": "分应用代理",
@@ -352,27 +352,27 @@
               "import": {
                 "clipboard": "从剪贴板导入选择",
                 "file": "从文件导入选择",
-                "msg": "导入将替换您当前的选择。确定要继续吗？"
+                "msg": "导入将替换当前选择，确定继续吗？"
               },
               "export": {
                 "clipboard": "复制选择到剪贴板",
                 "file": "导出选择到文件"
               },
-              "shareToAll": "分享给所有人",
-              "clearAllSelections": "清除所有选择"
+              "shareToAll": "共享给所有用户",
+              "clearAllSelections": "清空所有选择"
             },
             "modes": {
               "all": "全部",
-              "proxy": "代理",
-              "bypass": "绕过",
+              "proxy": "仅代理",
+              "bypass": "排除",
               "allMsg": "代理所有应用",
               "proxyMsg": "仅代理选定应用",
-              "bypassMsg": "不代理选定应用"
+              "bypassMsg": "选定的应用不走代理"
             },
             "autoSelection": {
               "title": "自动选择",
               "performNow": "立即执行",
-              "resetToDefault": "重置为默认",
+              "resetToDefault": "恢复默认",
               "autoUpdateInterval": "自动更新间隔",
               "toast": {
                 "success": "自动选择应用成功完成",
@@ -405,11 +405,11 @@
         "remoteDnsDomainStrategy": "远程 DNS 域名策略",
         "directDns": "出站服务器解析器（直连）",
         "directDnsDomainStrategy": "出站域名策略",
-        "enableFakeDns": "启用伪造 DNS",
+        "enableFakeDns": "启用 Fake DNS",
         "domainStrategy": {
           "auto": "自动",
-          "preferIpv6": "偏好 IPv6",
-          "preferIpv4": "偏好 IPv4",
+          "preferIpv6": "优先 IPv6",
+          "preferIpv4": "优先 IPv4",
           "ipv4Only": "仅 IPv4",
           "ipv6Only": "仅 IPv6"
         }
@@ -430,13 +430,13 @@
         "strictRoute": "严格路由",
         "tunImplementation": "TUN 实现",
         "tunImplementations": {
-          "mixed": "混合",
-          "system": "系统",
+          "mixed": "Mixed",
+          "system": "System",
           "gvisor": "gVisor"
         },
         "mixedPort": "混合端口",
         "tproxyPort": "透明代理端口",
-        "directPort": "本地 Direct 端口",
+        "directPort": "直连端口",
         "redirectPort": "重定向端口",
         "lanSharing": "VPN 共享",
         "lanSharingPasswordNotSet": "密码未设置",
@@ -456,7 +456,7 @@
         "packets1_4": "1-4",
         "packets1_5": "1-5",
         "size": "分片大小",
-        "sleep": "分片延迟",
+        "sleep": "分片间隔",
         "mixedSniCase": {
           "enable": "启用混合大小写 SNI"
         },
@@ -467,36 +467,36 @@
       },
       "chain": {
         "title": "链",
-        "subtitle": "额外安全与解锁器",
+        "subtitle": "附加安全与解封",
         "finalIp": "最终 IP",
         "levels": {
           "app": {
             "title": "应用",
-            "msg": "起始点：您的应用流量在此进入链条，并经过后续层级以为最终分流做准备"
+            "msg": "起点：应用流量在此进入链路，依次经过后续层级，为最终分流做准备"
           },
           "extraSecurity": {
-            "title": "额外安全",
-            "msg": "增加一个额外的防护层以保护您的数据隐私，即使您的主配置文件不可信"
+            "title": "附加安全",
+            "msg": "增加额外防护层保护数据隐私，即使主配置不可信"
           },
           "mainProfile": {
             "title": "主配置"
           },
           "unblocker": {
-            "title": "解锁器",
-            "msg": "帮助绕过网络限制。如果辅助程序连接成功，即使您的主配置当前被封锁，它仍可继续工作"
+            "title": "解封器",
+            "msg": "帮助绕过网络限制。若辅助连接成功，即使主配置当前被封仍可正常使用"
           },
           "filtering": {
-            "title": "分流",
-            "msg": "最终出口：通过活动层（额外安全、主配置或解锁器）并应用其效果后，您的流量最终被路由以绕过本地网络过滤"
+            "title": "过滤",
+            "msg": "最终出口：经过活动层（附加安全、主配置或解封器）后，流量被路由以绕过本地网络过滤"
           }
         },
         "warp": {
-          "missingConfig": "WARP 配置缺失",
+          "missingConfig": "缺少 WARP 配置",
           "licenseKey": "许可证密钥",
           "cleanIp": "优选 IP",
           "port": "端口",
           "noise": {
-            "count": "噪声数量",
+            "count": "噪声包数",
             "mode": "噪声模式",
             "size": "噪声大小",
             "delay": "噪声延迟"
@@ -512,7 +512,7 @@
             "bg": "保加利亚 (bg)",
             "ca": "加拿大 (ca)",
             "ch": "瑞士 (ch)",
-            "cz": "捷克共和国 (cz)",
+            "cz": "捷克 (cz)",
             "de": "德国 (de)",
             "dk": "丹麦 (dk)",
             "ee": "爱沙尼亚 (ee)",
@@ -552,8 +552,8 @@
       "traffic": "流量",
       "trafficLive": "实时流量",
       "trafficTotal": "总流量",
-      "uplink": "上传",
-      "downlink": "下载",
+      "uplink": "上行",
+      "downlink": "下行",
       "speed": "速度",
       "totalTransferred": "总传输量"
     },
@@ -583,16 +583,16 @@
       }
     },
     "warpLicense": {
-      "title": "Cloudflare WARP 同意书",
-      "description(rich)": "Cloudflare WARP 是一个免费的 WireGuard VPN 提供商。启用此选项即表示您同意 Cloudflare WARP 的 ${tos(服务条款)} 和 ${privacy(隐私政策)}。"
+      "title": "Cloudflare WARP 授权",
+      "description(rich)": "Cloudflare WARP 是免费的 WireGuard VPN 提供商。启用此选项即表示您同意 Cloudflare WARP 的 ${tos(服务条款)} 和 ${privacy(隐私政策)}。"
     },
     "psiphonLicense": {
       "title": "Psiphon 许可协议",
-      "description(rich)": "使用 Psiphon 即表示您同意 ${tos(服务条款)} 并确认 ${privacy(隐私政策)}。请在继续之前仔细阅读它们。"
+      "description(rich)": "使用 Psiphon 即表示您同意 ${tos(服务条款)} 并确认 ${privacy(隐私政策)}。请在继续前仔细阅读。"
     },
     "newVersion": {
       "title": "有可用更新",
-      "msg": "@:common.appTitle 的新版本已发布。您想现在更新吗？",
+      "msg": "@:common.appTitle 有新版本可用，是否立即更新？",
       "currentVersion": "当前版本：",
       "newVersion": "新版本：",
       "updateNow": "立即更新"
@@ -600,56 +600,56 @@
     "confirmation": {
       "settings": {
         "import": {
-          "msg": "这将用提供的值覆盖所有配置选项。您确定吗？"
+          "msg": "此操作将用提供的值覆盖所有配置选项，确定继续吗？"
         }
       },
       "profile": {
         "delete": {
-          "title": "删除配置文件",
-          "msg": "您确定要永久删除此配置文件吗？"
+          "title": "删除配置",
+          "msg": "确定要永久删除此配置吗？"
         }
       },
       "perAppProxy": {
         "shareOnGithub": {
           "title": "改进自动选择",
-          "msg": "通过分享您选择的应用，可以帮助完善“自动选择”列表"
+          "msg": "分享所选应用可帮助完善 \"自动选择\" 列表"
         },
         "import": {
-          "msg": "这将替换您当前所有的分应用代理选择。您确定要继续吗？"
+          "msg": "此操作将替换当前所有的分应用代理选择，确定继续吗？"
         }
       },
       "routeRule": {
         "delete": {
           "title": "删除规则",
-          "msg": "您确定要删除规则 \"$rulename\" 吗？"
+          "msg": "确定要删除规则 \"$rulename\" 吗？"
         }
       },
       "addProfileByDeepLinkWarning": {
         "title": "添加配置？",
-        "message": "来自 \"${host}\" 的外部链接请求添加新配置。您想要导入吗？"
+        "message": "来自 \"${host}\" 的外部链接请求添加新配置，是否导入？"
       },
       "importRouteRuleByDeepLinkWarning": {
         "title": "导入路由规则？",
-        "message": "从不受信任的来源导入路由规则可能会存在安全风险\n仅当您信任此链接时才继续"
+        "message": "从不受信任的来源导入路由规则可能存在安全风险\n仅当您信任此链接时才继续"
       }
     },
     "experimentalNotice": {
       "title": "正在使用实验性功能",
-      "msg": "您已启用了一些实验性功能，这可能会影响连接质量并导致意外错误。您可以随时在配置选项页面更改或重置这些选项。",
+      "msg": "已启用的实验性功能可能影响连接质量并导致意外错误。可随时在配置选项页面更改或重置这些选项。",
       "disable": "不再显示"
     },
     "noActiveProfile": {
-      "title": "选择一个配置文件",
-      "msg": "让我们从添加一个包含您 VPN 连接详细信息的配置文件开始。\n\n还没有 VPN 服务器？别担心，按照下面的教程，您可以快速免费地设置一个。",
+      "title": "选择一个配置",
+      "msg": "请先添加一个包含 VPN 连接信息的配置文件。\n\n还没有 VPN 服务器？别担心，按下方教程可快速免费搭建一个。",
       "helpBtn": {
-        "label": "告诉我如何操作",
+        "label": "查看教程",
         "url": "https://hiddify.com/manager/"
       }
     },
     "unknownDomainsWarning": {
       "title": "外部链接警告",
       "youAreAboutToVisit": "您即将访问：",
-      "thisWebsiteIsNotInOurTrustedList": "此网站不在我们的信任列表中。请谨慎操作。"
+      "thisWebsiteIsNotInOurTrustedList": "此网站不在信任列表中，请谨慎访问。"
     },
     "proxyInfo": {
       "fullTag": "完整标签：",
@@ -657,8 +657,8 @@
       "testTime": "测试时间：",
       "testDelay": "测试延迟：",
       "isSelected": "已选择：",
-      "isGroup": "是组",
-      "isSecure": "安全：",
+      "isGroup": "是否分组：",
+      "isSecure": "是否安全：",
       "port": "端口：",
       "host": "主机：",
       "ip": "IP：",
@@ -674,7 +674,7 @@
     },
     "windowClosing": {
       "askEachTime": "每次询问",
-      "alertMessage": "隐藏还是退出应用程序？",
+      "alertMessage": "隐藏或退出应用？",
       "remember": "记住我的选择"
     }
   },
@@ -684,28 +684,28 @@
     "connecting": "连接中...",
     "connected": "已连接",
     "disconnect": "断开连接",
-    "disconnecting": "断开连接中...",
+    "disconnecting": "断开中...",
     "reconnect": "重新连接",
     "reconnectMsg": "正在重新连接以应用更改..."
   },
   "errors": {
-    "unexpected": "意外错误",
+    "unexpected": "未知错误",
     "connection": {
-      "unexpected": "意外连接错误",
+      "unexpected": "未知连接错误",
       "timeout": "连接超时",
-      "badResponse": "响应错误",
+      "badResponse": "响应异常",
       "connectionError": "连接错误",
-      "badCertificate": "证书无效"
+      "badCertificate": "证书异常"
     },
     "profiles": {
-      "unexpected": "意外错误",
-      "notFound": "未找到配置文件",
+      "unexpected": "未知错误",
+      "notFound": "未找到配置",
       "invalidConfig": "配置无效",
       "invalidUrl": "URL 无效",
       "canceledByUser": "用户已取消"
     },
     "connectivity": {
-      "unexpected": "意外失败",
+      "unexpected": "未知错误",
       "missingVpnPermission": "缺少 VPN 权限",
       "missingNotificationPermission": "缺少通知权限",
       "core": "核心错误"
@@ -713,17 +713,17 @@
     "singbox": {
       "serviceNotRunning": "服务未运行",
       "missingPrivilege": "缺少权限",
-      "missingPrivilegeMsg": "VPN 模式需要管理员权限。请以管理员身份重新启动应用，或更改服务模式。",
+      "missingPrivilegeMsg": "VPN 模式需要管理员权限。请以管理员身份重启应用，或更改服务模式。",
       "invalidConfigOptions": "配置选项无效",
       "invalidConfig": "配置无效"
     },
     "warp": {
-      "missingLicense": "WARP 许可证缺失",
-      "missingLicenseMsg": "所选配置文件使用 WARP 功能；要使用此功能，必须同意 WARP 许可证"
+      "missingLicense": "缺少 WARP 许可证",
+      "missingLicenseMsg": "所选配置使用 WARP 功能；要使用此功能，必须同意 WARP 许可证"
     },
     "psiphon": {
-      "missingLicense": "需要 Psiphon 许可证",
-      "missingLicenseMsg": "所选配置文件使用 Psiphon 功能；要使用此功能，必须同意 Psiphon 许可证"
+      "missingLicense": "缺少 Psiphon 许可证",
+      "missingLicenseMsg": "所选配置使用 Psiphon 功能；要使用此功能，必须同意 Psiphon 许可证"
     }
   }
 }
